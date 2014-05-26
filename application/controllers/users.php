@@ -6,17 +6,23 @@ class Users extends CI_Controller {
     $this->load->helper('form');
     $this->load->helper('url');
     $this->load->helper('security');
-    $this->load->model('Users_model');
+    $this->load->model('users_model');
     $this->load->database();
  }
  
  public function index() {
-    //redirect('Users/view_users');
+    //redirect('Users/view_users/');
      $this->view_users();
  }
  
  public function view_users() {
-    $data['query'] = $this->Users_model->get_all_users();
+    $this->load->model("users_model");
+    $data['query'] = $this->users_model->get_all_users();
     $this->load->view('view_all_users', $data);
+    
+ }
+ 
+ public function new_user(){
+     $this->load->view('new_user');
  }
 }
