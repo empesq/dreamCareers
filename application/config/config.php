@@ -14,16 +14,7 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 
-                            switch($_SERVER["SERVER_NAME"]) {
-                                case "localhost":
-                                     $config["base_url"] = 
-                                     "http://localhost/dreamCareers/";
-                                     break;
-                                case "mydomain.com":
-                                     $config["base_url"] = "http://www.mydomain.com/";
-                                     break;
-                                }
+$config['base_url']= 'http://localhost/dreamCareers/site/';
 
 /*
 |--------------------------------------------------------------------------
@@ -53,7 +44,7 @@ $config['index_page'] = '';
 | 'ORIG_PATH_INFO'	Uses the ORIG_PATH_INFO
 |
 */
-$config['uri_protocol']	= 'AUTO';
+$config['uri_protocol']	= 'REQUEST_URI';
 
 /*
 |--------------------------------------------------------------------------

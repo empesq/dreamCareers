@@ -1,4 +1,4 @@
-<?php echo form_open('users/new_user') ; ?>
+<?php echo form_open('Users/new_user') ; ?>
  <?php if (validation_errors()) : ?>
  <h3>Whoops! There was an error:</h3>
  <p><?php echo validation_errors(); ?></p>

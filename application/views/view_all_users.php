@@ -1,5 +1,4 @@
 <?php 
-echo "<a href='Users/new_user'>Add New User</a>";
 if ($query->num_rows() > 0 ){
 echo "<table border='0'>";
  echo "<tr>";
