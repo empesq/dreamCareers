@@ -20,7 +20,7 @@
    
 </table>
  <?php echo form_submit('submit', 'Create'); ?>
- or <?php echo anchor('users/index', 'cancel'); ?>
+ or <?php echo anchor('index', 'cancel'); ?>
 <?php echo form_close(); ?>
 
 

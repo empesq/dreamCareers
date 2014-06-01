@@ -98,7 +98,9 @@ class Site extends CI_Controller {
         'hash' => $hash    
         );
         if ($this->mod_dbtrans->insert('seeker',$data)) {
-            redirect('site');
+            //redirect('site/home');
+            $this->home();
+               
         }
     }
  }
