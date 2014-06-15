@@ -5,8 +5,9 @@
 	<title><?php echo $title;?></title>
  
 </head>
-<body>  
+<body bgcolor='gray'> 
     <h3> Welcome to dreamCareers ! </h3>
     <h4>The World's Friendliest Job Portal</h4>
+    
 </body>
 </html>

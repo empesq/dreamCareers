@@ -1,8 +1,13 @@
-<?php echo form_open_multipart('save_seeker') ; ?>
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<body bgcolor='gray'>
+<?php echo form_open_multipart('register/signup_seeker') ; ?>
  <?php if (validation_errors()) : ?>
  <h3>Whoops! There was an error:</h3>
  <p><?php echo validation_errors(); ?></p>
  <?php endif; ?>
+
  <table border="0">
      <tr>
          <td>Email:<?php echo form_input($email); ?></td>
@@ -22,7 +27,9 @@
  <?php echo form_submit('submit', 'Create'); ?>
  or <?php echo anchor('index', 'cancel'); ?>
 <?php echo form_close(); ?>
-
+</body>
+</html>
+ 
 
 <!--<!DOCTYPE html>
  <html>

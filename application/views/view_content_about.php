@@ -1,3 +1,3 @@
 <?php
 
-echo "The 'About' content goes here...";
+echo "<body bgcolor='gray'> The 'About' content goes here...</body>";

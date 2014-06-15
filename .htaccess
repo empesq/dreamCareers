@@ -3,3 +3,37 @@ RewriteBase /dreamCareers/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule .* index.php?/$0 [PT,L,QSA]
+
+#Options +FollowSymLinks
+#Options -Indexes
+#DirectoryIndex index.php
+#RewriteEngine on
+#RewriteCond $1 !^(index\.php|images|robots\.txt)
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+#RewriteBase /dreamCareers/
+
+#RewriteEngine on
+#RewriteCond $1 !^(index\.php|images|robots\.txt|css)
+#RewriteRule ^(.*)$ ./index.php/$1 [L]
+#RewriteBase /dreamCareers/
+
+#<IfMOdule mod_rewite.c>
+#    RewriteEngine On
+#    RewriteBase /dreamCareers/
+#    
+#    RewriteCond %{REQUEST_URI} ^system.*
+#    RewriteRule ^(.*)$ /index.php?/$1 [L]
+#    
+#    RewriteCond %{REQUEST_URI} ^application.*
+#    RewriteRule ^(.*)$ /index.php?/$1 [L]
+#
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteCond %{REQUEST_FILENAME} !-d
+#    RewriteRule ^(.*)$ /index.php?/$1 [L]
+#</IfModule>
+
+#<IfMOdule !mod_rewite.c>
+   #ErrorDocument 404 /index.php
+#</IfModule>

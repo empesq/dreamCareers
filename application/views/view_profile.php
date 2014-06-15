@@ -1,5 +1,5 @@
 <html>
-    <body>
+    <body bgcolor='gray'>
         <table>
               <tr>
         <td>Nationality:</td> <td><?php echo form_dropdown('nationality',$nationality); ?></td>
