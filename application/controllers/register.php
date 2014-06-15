@@ -4,9 +4,9 @@
 class Register extends CI_Controller {
     function __construct() {
     parent::__construct();
-    $this->load->helper('form');
-    $this->load->helper('url');
-    $this->load->helper('security');
+//    $this->load->helper('form');
+//    $this->load->helper('url');
+//    $this->load->helper('security');
 //    $this->load->model('Register_model');
     $this->load->library('encrypt');
     $this->load->database();

@@ -4,9 +4,9 @@ class Site extends CI_Controller {
     
     function __construct() {
     parent::__construct();
-    $this->load->helper('form');
-    $this->load->helper('url');
-    $this->load->helper('security');
+//    $this->load->helper('form');
+//    $this->load->helper('url');
+//    $this->load->helper('security');
     $this->load->model('users_model');
     $this->load->database();
      $this->load->helper('date');

@@ -2,6 +2,7 @@
 
 class Nofun extends MX_Controller{
     public function index(){
-        echo "This is no fun at all.";
+        //echo "omg the hmvc is now functioning !!!.";
+        $this->load->view('view_nofun');
     }
 }
