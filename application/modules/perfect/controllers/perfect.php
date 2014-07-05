@@ -1,12 +1,9 @@
 <?php
-class Perfectcontroller extends MX_Controller 
+class Perfect extends MX_Controller 
 {
 
 function __construct() {
 parent::__construct();
-}
-function index(){
-    echo "Hello from the perfect controller.";
 }
 
 function get($order_by){

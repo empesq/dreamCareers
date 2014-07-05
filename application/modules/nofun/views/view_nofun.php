@@ -1,6 +1,2 @@
 This is no fun at all.
-<?php
- $this->load-module('perfect');
- $this->perfect>index();
-
-?>
+<?php echo form_input('hello','Hello from load_data'); ?>

@@ -3,15 +3,11 @@
 class Search_jobs extends CI_Controller {
   function __construct() {    
       parent::__construct();    
-      $this->load->helper('form');    
-      $this->load->helper('url');    
-      $this->load->helper('security');  
-      $this->load->library('session');
-      $this->load->view('view_header');
-      $this->load->view('view_nav');
+      echo Modules::run('header/index');
+      echo Modules::run('navigation/index');
     }
   public function index() {    
-      redirect('signin/login');  
+      //redirect('signin/login');  
     }
     
     public function search_criteria(){
