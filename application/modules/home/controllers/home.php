@@ -15,28 +15,20 @@ class Home extends MX_Controller {
  }
  
     public function index(){
-       $this->home();
-        //echo "hello world";
+//        $content = 'home/get_content';
+//        $module1 = 'signin_seeker';
+//        
+//        $this->load->module('templates');
+//        $this->templates->show_template($content,$module1);
+        $this->load->module('templates');
+        $this->templates->show_navigation();
+        $this->load->view('view_home');
+        $this->templates->show_footer();
+		
     }
     
-    public function home(){ 
-      echo Modules::run('header/index');
-      echo Modules::run('navigation/index');
-      echo Modules::run('signin/index');
-       // $this->load->module('header');
-        
-//        $data['title']="Welcome to dreamCareers !";
-//        $this->load->view("view_header",$data);
-//        $this->load->view("view_nav");
-//      
-//        if(!$this->checkActiveUsers()){
-//            $this->load->view("view_signin");
-//        }else{
-//            $this->load->view("view_logout");
-//        }
-//        
-//        $this->load->view("view_content_home");
-           echo Modules::run('footer/index');
+    public function get_content(){
+        $this->load->view('view_home');
     }
     
         //if a user is currently loggedin, the session expiry will be be increased by 15 minutes. And then returns true; false otherwise.
@@ -45,7 +37,7 @@ class Home extends MX_Controller {
         $this->load->model("mdl_loggedin");
         $user=$this->mdl_loggedin->isLoggedIn(); // checks if a users is currently logged in.
         if($user){
-            $expires=time() + (60*15); //if a user is currently loggedin, the session expiry will be be increased by 15 minutes.
+            $expires=time() + (60*15); //if a user is currently loggedin, the session expiry will be increased by 15 minutes.
             $this->db->query("UPDATE active_users SET expires=".$expires." WHERE user_id=".(int) $user."");
             return TRUE;
         } else{

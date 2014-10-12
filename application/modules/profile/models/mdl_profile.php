@@ -28,10 +28,11 @@ return $query;
 }
 
 function get_where($id){
-$table = $this->get_table();
-$this->db->where('email', $id);
-$query=$this->db->get($table);
-return $query;
+    $table = $this->get_table();
+    $this->db->select('*');
+    $this->db->where('email', $id);
+    $this->db->from($table);
+    return $this->db->get();
 }
 
 function get_where_custom($col, $value) {

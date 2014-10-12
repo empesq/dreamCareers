@@ -1,4 +1,6 @@
 <?php
+// display job results
+
 class Display_jobs extends MX_Controller 
 {
 
@@ -7,23 +9,56 @@ class Display_jobs extends MX_Controller
     }
 
     function index(){
-        $this->display_all_jobs();
+        
     }
     
-    function display_all_jobs(){
+//    function display_results(){
+//        $module1 = 'search_jobs';
+//        $content = 'display_jobs/get_results';
+//        
+//        $this->load->module('templates');
+//        $this->templates->show_template($content,$module1);
+//    }
+//    
+    function display_results($qdata){    
+        
        $this->load->model('mdl_display_jobs');
-       $query=$this->mdl_display_jobs->get_all_jobs();
-       $data['jobs']=$query->result();
-
+       $query1 = $this->mdl_display_jobs->get_jobs_title($qdata);
+       $query2 = $this->mdl_display_jobs->get_jobs_employer($qdata);
+       $result = $query1->result() + $query2->result();
+       
+       $data['fields']=array('Job Title','Company/Employer','Location','Salary','Date Posted','Closing Date','Vacancies');
+       $data['jobs']= $result;
+       $data['num_rows'] = count($result);
+      
+        //pagination
+       $this->load->library('pagination');
+       $config['base_url'] = 'http://localhost/dreamCareers/display_jobs/display_results';
+       $config['total_rows'] =  $data['num_rows'] ;
+       $config['per_page'] = 4;
+       $data['pagination']=$this->pagination->initialize($config);
+        
+       $content = 'Display_jobs/dispay_results';
+       $module1 = 'search_jobs/show_basic_search';
+       $this->load->module('templates');
        $this->load->view('view_display_jobs',$data);
+       $this->templates->show_template($content,$module1);
+       
+      //$this->apply_template();
+       
+       
     }
     
-    function display_by_location($location){
-        $this->load->model('mdl_display_jobs');
-        $query=$this->mdl_display_jobs->get_jobs_bylocation($location);
-        $data['jobs']=$query->result();
-
-       $this->load->view('view_display_jobs',$data);
+    function apply_template(){
+       $content = 'Display_jobs/dispay_results';
+       $module1 = 'search_jobs/show_basic_search';
+       $this->load->module('templates');
+       $this->templates->show_template($content,$module1);
     }
+    
+    
+     
+       
+    
     
 }

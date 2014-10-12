@@ -11,11 +11,16 @@ function index(){
 }
 
 function load_nav(){
-      if ($this->session->userdata('logged_in') == TRUE) {
-          $this->load->view('view_nav_loggedin');
-      } else {
+    if ($this->session->userdata('logged_in') == TRUE) {
+        if($this->session->userdata('user_type') == 'seeker'){
+            $this->load->view('view_nav_seeker_loggedin');
+        }
+        elseif($this->session->userdata('user_type') == 'employer'){
+            $this->load->view('view_nav_employer_loggedin');
+        }
+    } else {
           $this->load->view('view_nav');
-      }
+    }
 }
 
 }

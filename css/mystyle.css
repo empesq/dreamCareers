@@ -1,0 +1,25 @@
+.navbar{
+    background-color: #009999;
+}
+.nav navbar-nav{
+    color:#000;
+}
+.container{
+    color:#000000;
+}
+p{
+    font-family: "Calibri", serif;
+    font-size: 12px;
+}
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height:inherit;
+}
+.form-inline{
+    max-height:inherit;
+}
+#content-container{
+    padding-top:25px;
+    padding-right: 25px;
+    padding-bottom: 25px;
+    padding-left: 25px;
+}

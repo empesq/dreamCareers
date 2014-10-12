@@ -10,19 +10,24 @@ class About extends MX_Controller {
    // $this->load->model('users_model');
     //$this->load->database();
      $this->load->helper('date');
-     echo Modules::run('header/index');
-     echo Modules::run('navigation/index');
+//     echo Modules::run('header/index');
+//     echo Modules::run('navigation/index');
      
  }
  
     public function index(){
-       $this->show_content();
-       echo Modules::run('footer/index');
+//       $content = 'about/get_content';
+//        $module1 = '';
+//       $this->load->module('templates');
+//       $this->templates->show_template($content,$module1);
+	$this->load->module('templates');
+        $this->templates->show_navigation();
+        $this->load->view('view_about');
+        $this->templates->show_footer();
     }
     
-    public function show_content(){ 
-      $this->load->view('view_content_about');
-            
+    public function get_content(){
+        $this->load->view('view_about');
     }
     
         //if a user is currently loggedin, the session expiry will be be increased by 15 minutes. And then returns true; false otherwise.

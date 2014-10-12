@@ -14,8 +14,15 @@
          <td>Email:<?php echo form_input($email); ?></td>
      </tr>
     <tr>
-        <td>First Name:<?php echo form_input($first_name); ?></td>
-        <td>Last Name:<?php echo form_input($last_name); ?></td>
+        <td>First Name:<?php echo form_input($first_name); ?> &nbsp; 
+        Last Name:<?php echo form_input($last_name); ?></td>
+    </tr>
+    <tr>
+         <td>Company Name:<?php echo form_input($company); ?>
+             Phone: <?php echo form_input($phone); ?></td>
+     </tr>
+    <tr>
+         <td>Alternate Email:<?php echo form_input($altemail); ?></td>
     </tr>
     <tr>
          <td>Password:<?php echo form_password($password1)?> </td>

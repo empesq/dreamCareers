@@ -1,23 +1,76 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 class Mdl_display_jobs extends CI_Model {
 
-function __construct() {
-parent::__construct();
-}
+    function __construct() {
+        parent::__construct();
+    }
 
-function get_table() {
-$table = "jobs";
-return $table;
-}
+    function get_table() {
+        $table = "jobs_list";
+        return $table;
+    }
 
-function get_all_jobs(){
-    $table=$this->get_table();
-    return $this->db->query("SELECT * FROM ".$table." NATURAL JOIN employers");
-}
+    function get_jobs_title($data){
 
-function get_jobs_bylocation($location){
-    $table=$this->get_table();
-    return $this->db->query("SELECT * FROM ".$table." NATURAL JOIN employers WHERE city='".$location['city']."' AND country='".$location['country']."'");
+       $table = $this->get_table();
+       $this->db->like('jobTitle', $data['txtsearch']);
+       $this->db->order_by('jobTitle');
+       $query = $this->db->get($table);
+          
+       return $query;
+       
+//        if($data['txtsearch']=='' and $data['city']=='' and $data['country']=='Any country' and $data['min_salary']==''){ 
+//              $this->db->select('*');
+//              $this->db->from($table);
+//
+//          }
+//          elseif ($data['txtsearch']=='' and $data['city']=='' and $data['country']=='Any country'){
+//              $this->db->select('*');
+//              $this->db->from($table);
+//              $this->db->where('salary >=',$data['min_salary']);
+//              //return $this->db->get();
+//          }
+//           elseif ($data['txtsearch']=='' and $data['city']==''){
+//              $this->db->select('*');
+//              $this->db->from($table);
+//              $this->db->where('country',$data['country']);
+//              $this->db->where('salary >=',$data['min_salary']);
+//      //        return $this->db->get();
+//
+//          }
+//          elseif($data['txtsearch']==''){
+//              $this->db->select('*');
+//              $this->db->from($table);
+//              $this->db->where('city', $data['city']);
+//              $this->db->where('country',$data['country']);
+//              $this->db->where('salary >=',$data['min_salary']);
+//      //        return $this->db->get();
+//          }
+//          
+//          return $this->db->get();
+//
+//    }
+//    
+//   
+//    function get_jobs_byId($id){
+//        
+//         $table=$this->get_table();
+//         
+//         $this->db->select('*');
+//         $this->db->from($table);
+//         $this->db->where('jobId',$id);
+//         
+//         return $this->db->get();
+         
+    }
+
+function get_jobs_employer($data){
+    $table = $this->get_table();
+    $this->db->like('employerName',$data['txtsearch']);
+    $this->db->order_by('employerName');
+    $query = $this->db->get($table);
+    
+    return $query;
 }
 
 //-------------------------------------------------------------------------------------------------

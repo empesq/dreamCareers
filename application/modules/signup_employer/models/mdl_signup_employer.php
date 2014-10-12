@@ -1,12 +1,12 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
-class Mdl_perfectmodel extends CI_Model {
+class Mdl_signup_employer extends CI_Model {
 
 function __construct() {
 parent::__construct();
 }
 
 function get_table() {
-$table = "tablename";
+$table = "employers";
 return $table;
 }
 

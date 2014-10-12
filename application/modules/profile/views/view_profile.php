@@ -1,8 +1,12 @@
 
 <!DOCTYPE html>
 <html><body bgcolor='gray'>
- <?php $hidden['email']=$email; ?>
-<?php echo form_open('profile/edit_profile',"",$hidden) ; ?>
+ <?php //$hidden['email']=$email; ?>
+<?php 
+//echo form_open('profile/edit_profile',"",$hidden) ; 
+echo form_open('profile/edit_profile') ; 
+
+?>
 
 <table>
     <tr>
