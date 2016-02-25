@@ -18,12 +18,12 @@ class Home extends MX_Controller {
 //        $content = 'home/get_content';
 //        $module1 = 'signin_seeker';
 //        
-//        $this->load->module('templates');
+        $this->load->module('templates');
 //        $this->templates->show_template($content,$module1);
         $this->load->module('templates');
         $this->templates->show_navigation();
         $this->load->view('view_home');
-        $this->templates->show_footer();
+        //$this->templates->show_footer();
 		
     }
     

@@ -1,9 +1,21 @@
 .navbar{
-    background-color: #009999;
-}
-.nav navbar-nav{
+    //background-color: #009999;
+    background-color: #fff;
     color:#000;
 }
+.nav navbar-inverse .navbar-nav>li> a{
+    color:#080808;
+}
+.navbar-inverse .navbar-nav li:hover,
+.navbar-inverse .navbar-nav li.active {
+    background-color: #080808;
+}
+
+.navbar-inverse .navbar-nav li:hover a,
+.navbar-inverse .navbar-nav li:focus a {
+    color: #fff;
+}
+
 .container{
     color:#000000;
 }
@@ -11,7 +23,7 @@ p{
     font-family: "Calibri", serif;
     font-size: 12px;
 }
-.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom {
     max-height:inherit;
 }
 .form-inline{
@@ -22,4 +34,8 @@ p{
     padding-right: 25px;
     padding-bottom: 25px;
     padding-left: 25px;
+}
+#top-container{
+    padding-top:80px;
+    padding-bottom:25px;
 }

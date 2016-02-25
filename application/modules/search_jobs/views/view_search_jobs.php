@@ -1,7 +1,8 @@
-<html>
+
     
 <head>
-    <script type="text/javascript" src="assets/formEffects.js"> </script><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="assets/formEffects.js"> </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href = "<?php echo base_url('css/bootstrap.min.css'); ?>" rel = "stylesheet">
     <link href = "<?php echo base_url('css/styles.css'); ?> " rel = "stylesheet">
     <link href= "<?php echo base_url('css/mystyle.css'); ?> " rel="stylesheet">
@@ -10,18 +11,16 @@
 
 
 <body> 
-    <div class = "panel panel-default" style="padding-top:80px">
-        <div class="panel-body" style="background-color:#7DCACA">
-            <?php echo form_open_multipart('search_jobs/search',['role' => 'form']); ?>
+    <?php echo form_open_multipart('search_jobs/search',['role' => 'form']); ?>
             <?php if (validation_errors()) : ?>
             <h3>Whoops! There was an error:</h3>
             <p><?php echo validation_errors(); ?></p>
-
-            <?php endif; ?>
-            <br/> <br/>
+    <?php endif; ?>
             
-                    <div class="form-group col-md-4">
-                        <label for="txtsearch">Search</label>
+    <div class = "panel panel-default" style="padding-top:80px">
+        <div class="panel-body" style="background-color:#7DCACA">
+            <div class="form-group col-md-4">
+                        <label for="txtsearch" class="control-label">Search</label>
                         <?php echo form_input(array('name' => 'txtsearch',
                         'class' => 'form-control',
                         'id' => 'txtsearch',
@@ -29,7 +28,7 @@
                         'maxlength' => '100', 'size' => '50', 
                         'style' => 'width:300px',
                         'class="search_input" onfocus="myFocus(this);" onblur="myBlur(this);"')); ?> 
-                    </div>
+            </div>
              
                     <div class="form-group col-md-4">
                         <label for="city">City</label>
@@ -42,23 +41,18 @@
                     </div>
     
                     <div class="form-group col-md-4">
-                        <label for="drpCountry"> Country </label>
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="drpCountry" data-toggle="dropdown" style="width:200px">
-                                <?php echo $country['Any country']; ?>
-                                <b class="caret"></b>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                                <?php
-                                    foreach($country as $c){
-                                        echo "<li role='presentation'><a role='menuitem' tabindex='-1' href=#>" . $c . "</a></li>";
-                                    }
-                                ?>
-                            </ul>
-                        </div>
+                        <label for="drpCountry"> Location </label>
+                        <select name='drpcountry'>
+                            <option value="any country" selected="selected">Any Country</option>
+                        <?php 
+                         foreach($country as $key => $value){
+                            echo "<option value='".$value."'>" . $value . "</option>";
+                         }
+                         ?>
+                        </select>
                     </div>
                       
-                    <div class="form-group col-md-3">
+                    <div class="form-gr-md-3">
                         <label for="job_category">  </label>
                         <div class="dropdown ">
                             <button class="btn btn-default dropdown-toggle" type="button" id="job_category" data-toggle="dropdown">

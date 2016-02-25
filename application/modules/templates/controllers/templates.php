@@ -25,7 +25,7 @@ class Templates extends MX_Controller{
     }
     
      function show_footer(){
-        $this->load->view('footer');
+        $this->load->view('footer-main');
     }
     
     function show_navigation(){

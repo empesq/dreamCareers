@@ -10,10 +10,14 @@
 </html>-->
 <html>
     <head>
-         <script type="text/javascript" src="assets/formEffects.js"> </script>
+        <title>dreamCareers-Signin</title>
+        <script type="text/javascript" src="assets/formEffects.js"> </script>
+        <link href = "<?php echo base_url('css/bootstrap.min.css'); ?>" rel = "stylesheet">
+        <link href = "<?php echo base_url('css/styles.css'); ?> " rel = "stylesheet">
+        <link href= "<?php echo base_url('css/mystyle.css'); ?> " rel="stylesheet">
     </head>
-<body bgcolor="gray">  
-<?php echo form_open('signin_seeker/login') ; ?>
+<body>  
+<?php echo form_open('signin_seeker/login',['role' => 'form']) ; ?>
     <?php if (validation_errors()) : ?>
         <h3>Whoops! There was an error:</h3>
         <p><?php echo validation_errors(); ?></p>
@@ -24,34 +28,43 @@
         <p>Username or Password is incorrect, please try again.</p>
     <?php endif; ?>
         
-    <table border="0" >
-    <tr>
+    <div class="container" id="top-container">
+   
 <!--        Email input-->
-    <td><?php echo form_input(array('name' => 'email', 
-        'id' => 'email',
-        'value' => set_value('email', 'Enter Email'), 
-        'maxlength' => '100', 'size' => '50', 
-        'style' => 'width:20%',
-        'class="signin_input" onfocus="myFocus(this);" onblur="myBlur(this);"')); ?>
-        
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'email', 
+                   'id' => 'email',
+                    'value' => set_value('email', 'Enter Email'), 
+                    'maxlength' => '100', 
+                    'size' => '50',
+                    'class' => 'form-control onfocus="myFocus(this);" onblur="myBlur(this);"',
+                    'style' => 'width:250px',
+                    'placeholder' => 'Email'));
+            ?>
+        </div>
 <!--        Password input-->
-        <?php echo form_password(array('name' =>'password', 
-        'id' => 'password', 
-        'value' => set_value('password', 'Password'), 
-        'maxlength' => '100', 'size' => '50',
-        'style' => 'width:15%')); ?> &nbsp;
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'password', 
+                    'id' => 'password',
+                    'value' => set_value('password', 'Password'), 
+                    'maxlength' => '100', 
+                    'size' => '50',
+                    'class' => 'form-control',
+                    'style' => 'width:250px',
+                    'placeholder' => 'Password'));
+            ?>
+        </div>
            
     
-    <?php echo form_submit('submit', 'Submit'); ?> 
+    <?php echo form_submit('submit', 'Submit', 'class="btn btn-primary"','width:30px'); ?> 
      or <?php echo anchor('signin_seeker', 'cancel'); ?>
-    </td>
-       
-    </tr>
-    <tr>
-        <td> <?php echo anchor('signin_seeker/forgot_password','I forgot my password.');?> </td>
-    </tr>
-    </table>
- 
+
+     <div><?php echo anchor('signin_seeker/forgot_password','I forgot my password.');?> </div>
+
 <?php echo form_close(); ?>
+ <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src = "js/bootstrap.js"></script>
 </body>
 </html>

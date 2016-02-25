@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html>
-<meta charset="utf-8">
-<body bgcolor='gray'>
-   
-<?php echo form_open_multipart('signup_seeker/signup_seeker') ; ?>
- <?php if (validation_errors()) : ?>
- <h3>Whoops! There was an error:</h3>
- <p><?php echo validation_errors(); ?></p>
- <?php endif; ?>
+
+<head>
+    <title>Sign Up Seeker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href = "<?php echo base_url('css/bootstrap.min.css'); ?>" rel = "stylesheet">
+    <link href = "<?php echo base_url('css/styles.css'); ?> " rel = "stylesheet">
+    <link href= "<?php echo base_url('css/mystyle.css'); ?> " rel="stylesheet">
+</head>
+
+<body>
+    <?php echo form_open_multipart('signup_seeker/signup_seeker',['role' => 'form']) ; ?>
+         <?php if (validation_errors()) : ?>
+         <h3>Sorry! There was an error:</h3>
+         <p><?php echo validation_errors(); ?></p>
+    <?php endif; ?>
+         
+    <div class="container" id="top-container">
+        <h1 style="color:#006363">Seeker Sign Up</h1> <br/>
     
- <table border="0">
-     <tr>
-         <td>Email:<?php echo form_input($email); ?></td>
-     </tr>
-    <tr>
-        <td>First Name:<?php echo form_input($first_name); ?></td>
-        <td>Last Name:<?php echo form_input($last_name); ?></td>
-    </tr>
-    <tr>
-         <td>Password:<?php echo form_password($password1)?> </td>
-     </tr>
-     <tr>
-         <td>Confirm Password:<?php echo form_password($password2)?> </td>
-     </tr>
-     <tr>
-         <td> <a href=''> Upload Resume</a> </td>
-     </tr>
-</table>
- <?php echo form_submit('submit', 'Create'); ?>
- or <?php echo anchor('index', 'cancel'); ?>
-<?php echo form_close(); ?>
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'email', 
+                    'id' => 'email', 
+                    'value' => set_value('email', ''),
+                    'maxlength' => '100', 
+                    'size' => '35',
+                    'class' => 'form-control',
+                    'style' => 'width:300px',
+                    'placeholder' => 'Email'));
+            ?>
+        </div>
+        
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'first_name', 
+                    'id' => 'first_name', 
+                    'value' => set_value('first_name', ''),
+                    'maxlength' => '100', 
+                    'size' => '35',
+                    'class' => 'form-control',
+                    'style' => 'width:250px',
+                    'placeholder' => 'First Name'));
+            ?>
+        </div>
+        
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'last_name', 
+                    'id' => 'last_name', 
+                    'value' => set_value('last_name', ''),
+                    'maxlength' => '100', 
+                    'size' => '35',
+                    'class' => 'form-control',
+                    'style' => 'width:250px',
+                    'placeholder' => 'Last Name'));
+            ?>
+        </div>
+        
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'password1', 
+                    'id' => 'password1',
+                    'value' => set_value('password1', ''), 
+                    'maxlength' => '100', 
+                    'size' => '50',
+                    'class' => 'form-control',
+                    'style' => 'width:250px',
+                    'placeholder' => 'Password'));
+            ?>
+        </div>
+        
+        <div class="form-group">
+            <?php
+                echo form_input(array('name' => 'password2', 
+                    'id' => 'password1',
+                    'value' => set_value('password2', ''), 
+                    'maxlength' => '100', 
+                    'size' => '50',
+                    'style' => 'width:100%',
+                    'class' => 'form-control',
+                    'style' => 'width:250px',
+                    'placeholder' => 'Confirm Password'));
+            ?>
+        </div>
+        
+        <div class="form-group">
+            <a href='' class="btn btn-success"> Upload Resume</a> 
+        </div>
+     
+       <?php echo form_submit('submit', 'Create','class="btn btn-primary"','width:30px'); ?>
+        or <?php echo anchor('home', 'Cancel'); ?>
+       <?php echo form_close(); ?>
+    </div>
+ <script src = "http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+ <script src = "js/bootstrap.js"></script>
 </body>
 </html>
  

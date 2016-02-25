@@ -9,7 +9,7 @@ class Display_jobs extends MX_Controller
     }
 
     function index(){
-        
+    
     }
     
 //    function display_results(){

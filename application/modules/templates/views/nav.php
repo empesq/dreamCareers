@@ -11,13 +11,11 @@
          <nav class = "navbar navbar-inverse navbar-fixed-top" role="navigation">
             <div class = "container">    
                 <a href = "<?php echo base_url('home') ?>" class = "navbar-brand">
-                    <p style="font-family:'Calibri';color:#0000;font-size:24px"> dreamCareers </p>
+                    <p style="font-family:'Calibri';color:#000;font-size:24px"> dreamCareers </p>
                 </a>
 			<button class = "navbar-toggle" data-toggle = "collapse" data-target = ".navHeaderCollapse">
-				<span class = "icon-bar"></span>
-				<span class = "icon-bar"></span>
-                                <span class = "icon-bar"></span>
-                        </button>
+				<i class="fa fa-navicon"></i>
+            </button>
 			<div class = "collapse navbar-collapse navHeaderCollapse">
                 <ul class = "nav navbar-nav navbar-left">
                     <li class = "active"><a href = "<?php echo base_url('home') ?>">Home</a></li>
@@ -26,12 +24,13 @@
                     <li class = "dropdown">
                         <a href = "#" class = "dropdown-toggle" data-toggle = "dropdown">Employers <b class = "caret"></b></a>
                         <ul class = "dropdown-menu">
-                            <li><a href = "#">Sign in</a></li>
-                            <li><a href = "#">Post a Job</a></li>
+                            <li><a href = "<?php echo base_url('signin_employer') ?>">Sign in</a></li>
+                            <li><a href = "<?php echo base_url('signup_employer') ?>">Post a Job</a></li>
                         </ul>
                     </li>
-                    <li><a href = "#">Free Sign Up</a></li>
-                    <li><a href = "#">Blog</a></li>
+                    <li><a href = "<?php echo base_url('signup_seeker') ?>">Free Sign Up</a></li>
+                    <li><a href = "#"> Blog </a></li>
+                    <li><a href="<?php echo base_url('signin_seeker') ?>"> Sign in </a></li>
                 </ul>
                 <form class="navbar-form navbar-right" role="search">
                     <div class="form-group">

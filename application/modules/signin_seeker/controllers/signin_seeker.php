@@ -8,9 +8,12 @@ parent::__construct();
 //echo Modules::run('navigation/index');
 }
 
-public function index() {    
-      $this->login();  
-    }
+public function index() { 
+    $this->load->module('templates');
+    $this->templates->show_navigation();
+    $this->login();  
+    //$this->templates->show_footer();
+}
     
 public function login() {    
              

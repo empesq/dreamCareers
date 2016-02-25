@@ -8,12 +8,16 @@ class Signup_seeker extends MX_Controller
     $this->load->library('encrypt');
     $this->load->database();
     $this->load->helper('date');
-    echo Modules::run('header/index');
-    echo Modules::run('navigation/index');
+//    echo Modules::run('header/index');
+//    echo Modules::run('navigation/index');
+    
     }
 
   public function index() {
+        $this->load->module('templates');
+        $this->templates->show_navigation();
         $this->signup_seeker();
+        $this->templates->show_footer();
         //$this->load->view('view_footer');
     }
     
@@ -33,12 +37,13 @@ class Signup_seeker extends MX_Controller
 // Begin validation
     if ($this->form_validation->run() == FALSE) {
         // First load, or problem with form
-        $data['first_name'] = array('name' => 'first_name', 'id' => 'first_name', 'value' => set_value('first_name', ''),'maxlength' => '100', 'size' => '35');
-        $data['last_name'] = array('name' => 'last_name', 'id' => 'last_name', 'value' => set_value('last_name', ''),'maxlength' => '100', 'size' => '35');
-        $data['email'] = array('name' => 'email', 'id' => 'email', 'value' => set_value('email', ''),'maxlength' => '100', 'size' => '35');
-        $data['password1']=array('name' => 'password1', 'id' => 'password1','value' => set_value('password1', ''), 'maxlength' => '100', 'size' => '50','style' => 'width:100%');       
-        $data['password2']=array('name' => 'password2', 'id' => 'password2','value' => set_value('password2', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%');
-        $this->load->view('view_signup_seeker',$data);
+//        $data['first_name'] = array('name' => 'first_name', 'id' => 'first_name', 'value' => set_value('first_name', ''),'maxlength' => '100', 'size' => '35');
+//        $data['last_name'] = array('name' => 'last_name', 'id' => 'last_name', 'value' => set_value('last_name', ''),'maxlength' => '100', 'size' => '35');
+//        $data['email'] = array('name' => 'email', 'id' => 'email', 'value' => set_value('email', ''),'maxlength' => '100', 'size' => '35','class' => 'form-control','placeholder' => 'Email');
+//        $data['password1']=array('name' => 'password1', 'id' => 'password1','value' => set_value('password1', ''), 'maxlength' => '100', 'size' => '50','style' => 'width:100%');       
+//        $data['password2']=array('name' => 'password2', 'id' => 'password2','value' => set_value('password2', ''), 'maxlength' => '100', 'size' => '50', 'style' => 'width:100%');
+        //$this->load->view('view_signup_seeker',$data);
+        $this->load->view('view_signup_seeker');
         } 
     else { 
         // Validation passed, now escape the data

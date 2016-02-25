@@ -19,16 +19,22 @@ class Search_jobs extends MX_Controller
 //		
         $this->load->module('templates');
         $this->templates->show_navigation();
-       // $this->load->view('view_search_jobs');
+        //$this->load->view('view_search_jobs');
         Modules::run('display_jobs');
         $this->show_basic_search();
-        $this->templates->show_footer();
+        //$this->templates->show_footer();
     }
     
    
     function show_basic_search(){
-        $data['country']=$this->load_countries();
-        $data['job_category']=$this->load_job_categories();
+        $this->load->model('mdl_get_countries');
+        $query = $this->mdl_get_countries->get_countries();
+        foreach ($query->result() as $row) {
+             $country[] = $row->country;
+        }
+        
+        $data['country'] = $country;
+        $data['job_category'] = $this->load_job_categories();
         $this->load->view('view_search_jobs',$data);
     }
     
@@ -41,7 +47,8 @@ class Search_jobs extends MX_Controller
         $query= Modules::run('load_countries/get_countries');
         foreach ($query->result() as $row) {
             $country[$row->countryId] = $row->country;
-        }    
+        }
+
         return $country;
     }
 

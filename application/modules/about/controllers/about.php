@@ -23,7 +23,7 @@ class About extends MX_Controller {
 	$this->load->module('templates');
         $this->templates->show_navigation();
         $this->load->view('view_about');
-        $this->templates->show_footer();
+        //$this->templates->show_footer();
     }
     
     public function get_content(){
