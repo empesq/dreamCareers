@@ -46,28 +46,22 @@
                             <option value="any country" selected="selected">Any Country</option>
                         <?php 
                          foreach($country as $key => $value){
-                            echo "<option value='".$value."'>" . $value . "</option>";
+                            echo "<option value='".$key."'>" . $value . "</option>";
                          }
                          ?>
                         </select>
                     </div>
                       
                     <div class="form-gr-md-3">
-                        <label for="job_category">  </label>
-                        <div class="dropdown ">
-                            <button class="btn btn-default dropdown-toggle" type="button" id="job_category" data-toggle="dropdown">
-                                Specialization
-                                <span class="caret"></span>
-                            </button>
-
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-                            <?php
-                                foreach($job_category as $j){
-                                    echo "<li role='presentation'><a role='menuitem' tabindex='-1' href=#>" . $j . "</a></li>";
-                                }
-                            ?>
-                            </ul>
-                        </div> 
+                        <label for="job_category"> Specialization </label>
+                        <select name='job_category'>
+                            <option value="any specialization" selected="selected">Any Specialization</option>
+                        <?php 
+                         foreach($jobCategory as $key => $value){
+                            echo "<option value='".$key."'>" . $value . "</option>";
+                         }
+                         ?>
+                        </select>
                     </div>
 
                     <div class="form-group col-md-3">

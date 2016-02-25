@@ -27,14 +27,8 @@ class Search_jobs extends MX_Controller
     
    
     function show_basic_search(){
-        $this->load->model('mdl_get_countries');
-        $query = $this->mdl_get_countries->get_countries();
-        foreach ($query->result() as $row) {
-             $country[] = $row->country;
-        }
-        
-        $data['country'] = $country;
-        $data['job_category'] = $this->load_job_categories();
+        $data['country'] = $this->load_countries();
+        $data['jobCategory'] = $this->load_job_categories();
         $this->load->view('view_search_jobs',$data);
     }
     
@@ -44,20 +38,21 @@ class Search_jobs extends MX_Controller
     }
     
     function load_countries(){
-        $query= Modules::run('load_countries/get_countries');
+        $this->load->model('mdl_get_countries');
+        $query = $this->mdl_get_countries->get_countries();
         foreach ($query->result() as $row) {
-            $country[$row->countryId] = $row->country;
+             $country[] = $row->country;
         }
-
         return $country;
     }
-
+    
     function load_job_categories(){
-        $query= Modules::run('load_job_categories/get_job_categories');
-        foreach ($query->result() as $row) {
-            $job_category[$row->jobCategoryId] = $row->jobCategory;
-        }    
-        return $job_category;
+        $this->load->model('mdl_get_jobcategories');
+        $query = $this->mdl_get_jobcategories->get_jobcategories();
+        foreach($query->result() as $row) {
+            $jobCategory[] = $row->jobCategory;
+        }
+        return $jobCategory;
     }
     
     function search(){
